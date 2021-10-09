@@ -1,15 +1,32 @@
 import Cookies from 'js-cookie'
 
-const TokenKey = 'vue_admin_template_token'
-
+const TokenKey = 'bmwToken';
+import store from '../store'
+// console.log(`auth中的store====>`, store)
+import { pathOr } from 'ramda';
 export function getToken() {
-  return Cookies.get(TokenKey)
+  if (window.localStorage) {
+    const storeToken = pathOr('', ['getters', 'token'], store);
+    // console.log(`storeToken`, storeToken)
+    return storeToken || window.localStorage.getItem(TokenKey)
+  } else {
+    return Cookies.get(TokenKey)
+  }
 }
 
 export function setToken(token) {
-  return Cookies.set(TokenKey, token)
+  if (window.localStorage) {
+    window.localStorage.setItem(TokenKey, token)
+  } else {
+    return Cookies.set(TokenKey, token)
+  }
 }
 
 export function removeToken() {
-  return Cookies.remove(TokenKey)
+  if (window.localStorage) {
+    window.localStorage.removeItem(TokenKey)
+  } else {
+    return Cookies.remove(TokenKey)
+  }
 }
+

@@ -14,7 +14,7 @@ import router from './router'
 
 import '@/icons' // icon
 import '@/permission' // permission control
-
+import httpClient from '@/utils/httpClient.js';
 /**
  * If you don't want to use mock-server
  * you want to use MockJs for mock api
@@ -34,6 +34,8 @@ Vue.use(ElementUI, { locale })
 // Vue.use(ElementUI)
 
 Vue.config.productionTip = false
+Vue.httpClient = httpClient;
+Vue.prototype.httpClient = httpClient;
 
 new Vue({
   el: '#app',

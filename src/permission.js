@@ -32,7 +32,8 @@ router.beforeEach(async(to, from, next) => {
       } else {
         try {
           // get user info
-          await store.dispatch('user/getInfo')
+          //校验token
+          // await store.dispatch('user/getInfo')
 
           next()
         } catch (error) {
@@ -46,7 +47,7 @@ router.beforeEach(async(to, from, next) => {
     }
   } else {
     /* has no token*/
-
+console.log('242345')
     if (whiteList.indexOf(to.path) !== -1) {
       // in the free login whitelist, go directly
       next()
