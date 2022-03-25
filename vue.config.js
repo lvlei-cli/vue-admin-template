@@ -17,7 +17,7 @@ const name = defaultSettings.title || 'vue Admin Template' // page title
 const port = process.env.port || process.env.npm_config_port || 9528 // dev port
 
 
-const proxyHost = process.env.VUE_APP_PROXY_TARGET || 'https://dealer-dev.bmw-emall.cn/api/'
+const proxyHost = process.env.VUE_APP_PROXY_TARGET || 'https://dealer-dev.xxxxxxx.cn/api/'
 // console.log('///////////////////////////>>>>>>>>', process.env.NODE_ENV)
 // All configuration item explanations can be find in https://cli.vuejs.org/config/
 module.exports = {
